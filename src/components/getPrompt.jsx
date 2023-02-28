@@ -8,8 +8,8 @@ export default function GetPrompt() {
     const fetchData = async () => {
       try {
         const response = await fetch('https://gamegenerator-cc1ec.web.app/main');
-        const jsonData = await response.text();
-        setData(jsonData);
+        const Data = await response.text();
+        setData(Data);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
