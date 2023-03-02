@@ -1,8 +1,15 @@
+import React, { useState } from "react";
 import "./App.css";
 import GetPrompt from "./components/getPrompt";
 import Button from "react-bootstrap/Button";
 
 function App() {
+  const [refresh, setRefresh] = useState(false);
+
+  const handleClick = () => {
+    setRefresh(!refresh);
+  };
+
   return (
     <>
       <div className="App">
@@ -11,9 +18,11 @@ function App() {
           <h1>Game Generator</h1>
           <div className="gameBody" id="hardware">
             <div id="screen">
-              <GetPrompt />
+              <GetPrompt refresh={refresh} />
             </div>
-            <Button variant="primary" id="Button">Generate</Button>
+            <Button variant="primary" id="Button" onClick={handleClick}>
+              Generate
+            </Button>
           </div>
         </body>
       </div>
@@ -22,5 +31,3 @@ function App() {
 }
 
 export default App;
-
-// https://gameideasgenerator.web.app/
